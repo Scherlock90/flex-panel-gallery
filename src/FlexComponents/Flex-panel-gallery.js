@@ -1,37 +1,29 @@
 import React from 'react';
-import './Flex-panel-gallery.css';
+import './Flex-gallery.css';
+import sen from './Images/sen.jpg';
+import puma from './Images/puma.jpg';
 
-const dataImages = [
-  {
-    Title: "first",
-    SubTitle: 'next'
-  },
-  {
-    Title: "first1",
-    SubTitle: 'next1'
-  }
-]
+const imgStyle = {
+  width: '280px',
+  height: '280px'
+}
+
 
 export default function FlexPanelGallery () {
-    const panels = document.querySelectorAll('.panel');
-
-    function toggleOpen() {
-      console.log('Hello');
-      this.classList.toggle('open');
-    }
-
-    function toggleActive(e) {
-      console.log(e.propertyName);
-      if (e.propertyName.includes('flex')) {
-        this.classList.toggle('open-active');
-      }
-    }
-    
-    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
-    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
-    return(
-        <div>
-            {panels} + ss
-        </div>
-    )
+  return (
+    <div className="container">
+      <div className="box">
+          <img style={imgStyle} src={sen} />
+      </div>
+      <div className="box">
+          <img  style={imgStyle}src={puma} />
+      </div>
+      <div className="box">
+          <img  style={imgStyle}src={sen} />
+      </div>
+      <div className="box">
+          <img style={imgStyle} src={puma} />
+      </div>
+    </div>
+  )
 }
