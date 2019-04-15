@@ -70,11 +70,11 @@ body {
   transition: 0.5s;
 }
 
-.container .box.box:hover:before {
+.container .box:hover:before {
   top: -100%;
 }
 
-.container .box.box:hover:after {
+.container .box:hover:after {
   bottom: -100%;
 }
 

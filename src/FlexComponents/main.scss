@@ -62,10 +62,10 @@ body {
       z-index: 1;
       transition: 0.5s;
     }
-    &.box:hover:before {
+    &:hover:before {
       top: -100%;
     }
-    &.box:hover:after {
+    &:hover:after {
       bottom: -100%;
     }
   }
