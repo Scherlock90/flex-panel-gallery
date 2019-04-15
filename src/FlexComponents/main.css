@@ -19,6 +19,15 @@ body {
   justify-content: space-between;
 }
 
+.container:hover .box:before {
+  top: 0;
+}
+
+.container:hover .box:after {
+  bottom: 0;
+  transition-delay: 0.5s;
+}
+
 .container .box {
   position: relative;
   width: 280px;
@@ -59,6 +68,14 @@ body {
   background: #424242;
   z-index: 1;
   transition: 0.5s;
+}
+
+.container .box.box:hover:before {
+  top: -100%;
+}
+
+.container .box.box:hover:after {
+  bottom: -100%;
 }
 
 .cardImage .thumbTitle {
