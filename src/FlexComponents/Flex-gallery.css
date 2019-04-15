@@ -76,3 +76,17 @@ body {
   .container .box:hover:after {
     bottom: -100%;
   }
+  .cardImage:hover .thumbTitle{
+    color: #fafafa;
+    opacity: 1;
+    transition: opacity 3s;
+    background-color: rgb(3, 155, 229);
+    
+  }
+  .thumbTitle{
+    font-size: 20px;
+    transform: translateY(-400px);
+    color: rgb(3, 155, 229);
+    text-align: center;
+    opacity: 0;
+  }

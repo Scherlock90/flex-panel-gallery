@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import './Flex-gallery.css';
 
-const imgStyle = {
-  width: '280px',
-  height: '400px'
-}
-
 const dataImage = [
   {
     name: 'Branicki Letniskowy Pałac',
@@ -31,17 +26,17 @@ export default function FlexPanelGallery () {
   return (
     <div className="container">
       {imagesToGallery.map((img, i)=> (
-        <ImageThumb img={img.img} key={i} />
+        <ImageThumb img={img.img} key={i} name={img.name} />
       ))}
     </div>
   )
 }
 
 const ImageThumb = (props) => (
-  <div>
+  <div className="cardImage">
     <div className="box">
       <img src={require('./Images/' + props.img)} alt={props.name} />
     </div>
-    <h3 className="thumbTitle">{props.name}</h3>
+    <div className="thumbTitle">{props.name}</div>
   </div>
 );
