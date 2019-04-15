@@ -42,9 +42,6 @@ export default function FlexPanelGallery () {
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
       </div>
     </div>
-    
-   
-
   )
 }
 
