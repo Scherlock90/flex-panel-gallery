@@ -5,7 +5,7 @@ import puma from './Images/puma.jpg';
 
 const imgStyle = {
   width: '280px',
-  height: '280px'
+  height: '400px'
 }
 
 

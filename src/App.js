@@ -5,7 +5,8 @@ import FlexPanelGallery from './FlexComponents/Flex-panel-gallery';
 const title = {
   fontSize: '40px',
   textAlign: 'center',
-  padding: '3em'
+  padding: '2em',
+  color: '#039be5'
 }
 export default function App () {
   return (
