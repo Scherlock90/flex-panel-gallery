@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
+import Button from '@material-ui/core/Button';
 import './main.css';
-
 const dataImage = [
   {
     name: 'Branicki Letniskowy Pałac',
@@ -19,15 +19,32 @@ const dataImage = [
     img: 'sopotMolo.jpg'
   }
 ]
+const buttonStyle ={
+  padding : '3em 0 0 0'
+}
 
 export default function FlexPanelGallery () {
     const [imagesToGallery, setImagesToGallery] = useState(dataImage);
+    const [grayscale, setGrayscale] = useState(0);
+
+    const makeGrey = {
+      filter: `grayscale(${grayscale})`
+    }
   return (
-    <div className="container">
-      {imagesToGallery.map((img, i)=> (
-        <ImageThumb img={img.img} key={i} name={img.name} />
-      ))}
+    <div>
+      <div className="container" style={makeGrey}>        
+        {imagesToGallery.map((img, i)=> (
+          <ImageThumb img={img.img} key={i} name={img.name} />
+        ))}        
+      </div>
+      <div style={buttonStyle}>
+        <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
+        <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
+      </div>
     </div>
+    
+   
+
   )
 }
 

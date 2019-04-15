@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Scherlock90.github.io/flex-panel-gallery/",
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
