@@ -22,7 +22,6 @@ const dataImage = [
 
 export default function FlexPanelGallery () {
     const [imagesToGallery, setImagesToGallery] = useState(dataImage);
-
   return (
     <div className="container">
       {imagesToGallery.map((img, i)=> (
