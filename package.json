@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Scherlock90.github.io/flex-panel-gallery/",
   "dependencies": {
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
@@ -26,6 +27,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "sass": "^1.18.0"
   }
 }

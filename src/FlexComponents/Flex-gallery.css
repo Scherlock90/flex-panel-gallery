@@ -1,68 +1,9 @@
-body {
-    margin: 0;
-    background-color: #424242;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
-  }
 
-  .container{
-      width: 1200px;
-      height: 400px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  .container .box {
-    position: relative;
-    width: 280px;
-    height: 400px;
-    background: #424242;;
-    transition: 0.5s;
-    overflow:hidden;
-  }
-  .container .box img {
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .container .box:before {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: #424242;;
-    z-index: 1;
-    transition: 0.5s;
-  }
-  .container .box:after {
-    content: '';
-    position: absolute;
-    bottom: -100%;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: #424242;;
-    z-index: 1;
-    transition: 0.5s;
-  }
+  
+  
+
+
+ 
   .container:hover .box:before {
     top: 0;
   }
@@ -75,18 +16,4 @@ body {
   }
   .container .box:hover:after {
     bottom: -100%;
-  }
-  .cardImage:hover .thumbTitle{
-    color: #fafafa;
-    opacity: 1;
-    transition: opacity 3s;
-    background-color: rgb(3, 155, 229);
-    
-  }
-  .thumbTitle{
-    font-size: 20px;
-    transform: translateY(-400px);
-    color: rgb(3, 155, 229);
-    text-align: center;
-    opacity: 0;
   }

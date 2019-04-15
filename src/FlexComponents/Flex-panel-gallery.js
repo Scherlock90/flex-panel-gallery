@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Flex-gallery.css';
+import './main.css';
 
 const dataImage = [
   {
