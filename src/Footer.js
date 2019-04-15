@@ -13,7 +13,7 @@ const titleStyle = {
     fontSize: '20px',
     zIndex: '100',
     position: 'relative',
-    boxShadow: '-10px 25px 50px rgba(0, 0,0, 10.2)'
+    textDecoration: 'none'
 }
 
 export default function Footer () {
