@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import './main.css';
 const dataImage = [
   {
-    name: 'Branicki Letniskowy Pałac',
+    name: 'Letniskowy Pałac Branickich',
     img: 'branicki.jpg'
   },
   { 
@@ -26,6 +26,7 @@ const buttonStyle ={
 export default function FlexPanelGallery () {
     const [imagesToGallery, setImagesToGallery] = useState(dataImage);
     const [grayscale, setGrayscale] = useState(0);
+    const [rotation, setRotation] = useState(0);
 
     const makeGrey = {
       filter: `grayscale(${grayscale})`
