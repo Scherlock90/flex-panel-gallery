@@ -1,9 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Flex-gallery.css';
-import branicki from './Images/branicki.jpg';
-import roadTorun from './Images/roadTorun.jpg';
-import sliwnoKladki from './Images/sliwnoKladki.jpg';
-import sopotMolo from './Images/sopotMolo.jpg';
 
 const imgStyle = {
   width: '280px',
@@ -12,34 +8,40 @@ const imgStyle = {
 
 const dataImage = [
   {
+    name: 'Branicki Letniskowy Pałac',
     img: 'branicki.jpg'
   },
-  {
+  { 
+    name: 'W drodze do Torunia',
     img: 'roadTorun.jpg'
   },
   {
+    name: 'Kładki w Śliwnie',
     img: 'sliwnoKladki.jpg'
   },
   {
+    name: 'Sopockie Molo',
     img: 'sopotMolo.jpg'
   }
 ]
 
 export default function FlexPanelGallery () {
+    const [imagesToGallery, setImagesToGallery] = useState(dataImage);
+
   return (
     <div className="container">
-      <div className="box">
-          <img style={imgStyle} src={sliwnoKladki} />
-      </div>
-      <div className="box">
-          <img  style={imgStyle}src={branicki} />
-      </div>
-      <div className="box">
-          <img  style={imgStyle}src={roadTorun} />
-      </div>
-      <div className="box">
-          <img style={imgStyle} src={sopotMolo} />
-      </div>
+      {imagesToGallery.map((img, i)=> (
+        <ImageThumb img={img.img} key={i} />
+      ))}
     </div>
   )
 }
+
+const ImageThumb = (props) => (
+  <div>
+    <div className="box">
+      <img src={require('./Images/' + props.img)} alt={props.name} />
+    </div>
+    <h3 className="thumbTitle">{props.name}</h3>
+  </div>
+);
