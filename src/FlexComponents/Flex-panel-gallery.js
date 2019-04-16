@@ -5,18 +5,22 @@ import './main.css';
 ReactModal.setAppElement('#root2');
 const dataImage = [
   {
+    id: 1,
     name: 'Letniskowy Pałac Branickich',
     img: 'branicki.jpg'
   },
   { 
+    id: 2,
     name: 'W drodze do Torunia',
     img: 'roadTorun.jpg'
   },
   {
+    id: 3,
     name: 'Kładki w Śliwnie',
     img: 'sliwnoKladki.jpg'
   },
   {
+    id: 4,
     name: 'Sopockie Molo',
     img: 'sopotMolo.jpg'
   }
@@ -27,8 +31,11 @@ const buttonStyle ={
 
 export default function FlexPanelGallery () {
     const [imagesToGallery] = useState(dataImage);
+    const [name, setName] = useState('');
+    const [itemId, setItemId] = useState(null)
     const [grayscale, setGrayscale] = useState(0);
     const [zoom, setZoom] = useState('');
+    const [selectedPhoto, setSelectedPhoto] = useState({selectedAlbum: null})
     const [modal, setModal] = useState(false)
     const makeGrey = {
       filter: `grayscale(${grayscale})`
@@ -40,15 +47,20 @@ export default function FlexPanelGallery () {
     function notActive (id) {
       return zoom !== id;
     }
-    function  setActiveTab(zoom) {
+    function  setActivePhoto(zoom) {
       setZoom(zoom);
       return zoom
     }
-    function  notActiveTab(zoom) {
+    function  notActivePhoto(zoom) {
       setZoom(!zoom);
       return zoom
     }
-    function handleOpenModal (e, modal) {
+    const albumClicked = selectedAlbum => e => {
+      setSelectedPhoto({selectedAlbum});
+      console.log(selectedAlbum);
+      return selectedAlbum      
+    }
+    function handleOpenModal (modal) {
       setModal(true);
       return modal
     }
@@ -57,6 +69,22 @@ export default function FlexPanelGallery () {
       setModal(false);
       return modal
     }
+    function openModalWithItem(dataImage) {
+      setName(dataImage.name);
+      setItemId(dataImage.id);
+      return 
+   }
+   let photoList = dataImage.map( item => {
+    return (
+      <ImageThumb 
+        key={item.id}
+        img={item.img} 
+        name={item.name}
+        onActivePhoto={() => openModalWithItem(item)}
+      />
+   )});
+   console.log(photoList[1]);
+    const selectedAlbum = selectedAlbum;
   return (
     <div>
       <div id="root2"> </div>
@@ -69,8 +97,8 @@ export default function FlexPanelGallery () {
             name={img.name} 
             isActive={isActive(img.img)} 
             notActive={notActive(img.img)} 
-            onActiveTab={setActiveTab.bind(this, img.img)} 
-            notActiveTab={notActiveTab.bind(this, img.img)}
+            onActivePhoto={handleOpenModal} 
+            notActivePhoto={notActivePhoto.bind(this, img.img)}
             />
         ))}        
       </div>
@@ -85,18 +113,31 @@ export default function FlexPanelGallery () {
            onRequestClose={e => handleCloseModal(e)}
            className="Modal"
            overlayClassName="Overlay"
+           itemId={itemId}
+            itemName={name}
         >
+        
         <div className="containerModal">
           <div className="container" style={makeGrey}>
-              {imagesToGallery.map((img, i)=> (
+          {photoList.filter((img,i ) => (
+                <ImageThumb 
+                key={i}
+                  img={img.img} 
+                  name={img.name}
+                  onActivePhoto={albumClicked}
+                  />
+              ))}
+              {selectedAlbum && imagesToGallery.map((img,i ) => (
                 <ImageThumb 
                   img={img.img} 
-                  key={i} 
-                  name={img.name} 
-                  isActive={isActive(img.img)} 
-                  notActive={notActive(img.img)} 
-                  onActiveTab={setActiveTab.bind(this, img.img)} 
-                  notActiveTab={notActiveTab.bind(this, img.img)}
+                  name={img.name}
+                  onActivePhoto={albumClicked}
+                  />
+              )).filter(img  => img.img === selectedAlbum.img (
+                <ImageThumb 
+                  img={img.img} 
+                  name={img.name}
+                  onActivePhoto={albumClicked}
                   />
               ))}   
           </div>  
@@ -110,11 +151,11 @@ export default function FlexPanelGallery () {
 const ImageThumb = (props) => (
     <div className="cardImage">
       <div className="box">
-        <img src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActiveTab} />
+        <img src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActivePhoto} />
       </div>
       <div className="thumbTitle">{props.name}</div> 
       {/* <div id="myModal" className={props.isActive ? 'modal-content': 'modal'}>
-        <img onClick={props.notActiveTab} src={require('./Images/' + props.img)} />
+        <img onClick={props.notActivePhoto} src={require('./Images/' + props.img)} />
       </div>   */}
     </div> 
 );
