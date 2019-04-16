@@ -74,7 +74,8 @@ export default function FlexPanelGallery () {
       <ImageThumb 
         key={item.id}
         img={item.img} 
-        name={item.name}        
+        name={item.name}  
+        onActivePhoto={handleOpenModal}      
       />
    )});
    console.log(photoList[1]);
@@ -84,7 +85,7 @@ export default function FlexPanelGallery () {
       <div id="root2"> </div>
 
       <div className="container" style={makeGrey}>        
-        {imagesToGallery.map((img, i)=> (
+        {photoList.filter((img, i)=> (
           <ImageThumb 
             img={img.img} 
             key={i} 
