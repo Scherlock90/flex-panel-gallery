@@ -24,16 +24,25 @@ const buttonStyle ={
 }
 
 export default function FlexPanelGallery () {
-    const [imagesToGallery, setImagesToGallery] = useState(dataImage);
-    const [grayscale, setGrayscale] = useState(0);
+    const [imagesToGallery] = useState(dataImage);
+    const [grayscale, setGrayscale] = useState('sample-image');
+    const [zoom, setZoom] = useState(0);
     const makeGrey = {
       filter: `grayscale(${grayscale})`
+    }
+    function isActive (id) {
+      return zoom === id;
+    }    
+    function  setActiveTab(zoom) {
+      setZoom(zoom);
+      return zoom
     }
   return (
     <div>
       <div className="container" style={makeGrey}>        
         {imagesToGallery.map((img, i)=> (
-          <ImageThumb img={img.img} key={i} name={img.name} />
+          <ImageThumb img={img.img} key={i} name={img.name} isActive={isActive(img.img)} onActiveTab={setActiveTab.bind(this, img.img)}
+            />
         ))}        
       </div>
       <div style={buttonStyle}>
@@ -47,7 +56,7 @@ export default function FlexPanelGallery () {
 const ImageThumb = (props) => (
   <div className="cardImage">
     <div className="box">
-      <img src={require('./Images/' + props.img)} alt={props.name} />
+      <img className={props.isActive ? 'sample-image--active': ''} src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActiveTab}/>
     </div>
     <div className="thumbTitle">{props.name}</div>
   </div>
