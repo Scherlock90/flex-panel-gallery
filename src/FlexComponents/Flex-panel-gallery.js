@@ -26,8 +26,6 @@ const buttonStyle ={
 export default function FlexPanelGallery () {
     const [imagesToGallery, setImagesToGallery] = useState(dataImage);
     const [grayscale, setGrayscale] = useState(0);
-    const [rotation, setRotation] = useState(0);
-
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
