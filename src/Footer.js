@@ -12,7 +12,6 @@ const titleStyle = {
     fontWeight: '600',
     fontSize: '20px',
     zIndex: '100',
-    position: 'relative',
     textDecoration: 'none'
 }
 

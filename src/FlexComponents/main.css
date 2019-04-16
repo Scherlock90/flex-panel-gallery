@@ -37,6 +37,10 @@ body {
   overflow: hidden;
 }
 
+.container .box--active {
+  display: none;
+}
+
 .container .box img {
   position: absolute;
   top: 0;
@@ -78,6 +82,14 @@ body {
   bottom: -100%;
 }
 
+.cardImage {
+  display: block;
+}
+
+.cardImage--active {
+  display: none;
+}
+
 .cardImage .thumbTitle {
   font-size: 20px;
   transform: translateY(-400px);
@@ -92,69 +104,24 @@ body {
   background-color: #039be5;
 }
 
-.sample-image {
-  width: 25%;
-  cursor: pointer;
-}
-
-.sample-image--active {
-  width: 1000px !important;
-  cursor: pointer;
-  /* The Modal (background) */
-}
-
-.sample-image--active .modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/ opacity */
-}
-
 /* The Modal (background) */
 .modal {
   display: none;
   /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/ opacity */
+  position: absolute;
 }
 
 /* Modal Content (image) */
 .modal-content {
-  margin: auto;
   display: block;
-  width: 75%;
+}
+
+.modal-content img {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 /* Caption of Modal Image */
@@ -232,4 +199,35 @@ body {
   .modal-content {
     width: 100%;
   }
+}
+
+.MuiButtonBase-root-27 {
+  position: inherit !important;
+}
+
+.containerModal {
+  height: -webkit-fill-available;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: papayawhip;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
 }
