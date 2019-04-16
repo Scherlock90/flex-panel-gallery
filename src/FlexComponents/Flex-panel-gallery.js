@@ -25,8 +25,8 @@ const buttonStyle ={
 
 export default function FlexPanelGallery () {
     const [imagesToGallery] = useState(dataImage);
-    const [grayscale, setGrayscale] = useState('sample-image');
-    const [zoom, setZoom] = useState(0);
+    const [grayscale, setGrayscale] = useState(0);
+    const [zoom, setZoom] = useState('sample-image');
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
@@ -56,8 +56,11 @@ export default function FlexPanelGallery () {
 const ImageThumb = (props) => (
   <div className="cardImage">
     <div className="box">
-      <img className={props.isActive ? 'sample-image--active': ''} src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActiveTab}/>
+      <img  className={props.isActive ? 'sample-image--active': ''} src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActiveTab}/>
     </div>
+        <div id="myModal" className="modal">
+        <img  src={require('./Images/' + props.img)} />
+      </div>
     <div className="thumbTitle">{props.name}</div>
   </div>
 );
