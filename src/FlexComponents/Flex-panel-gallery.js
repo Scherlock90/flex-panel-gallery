@@ -69,18 +69,12 @@ export default function FlexPanelGallery () {
       setModal(false);
       return modal
     }
-    function openModalWithItem(dataImage) {
-      setName(dataImage.name);
-      setItemId(dataImage.id);
-      return 
-   }
    let photoList = dataImage.map( item => {
     return (
       <ImageThumb 
         key={item.id}
         img={item.img} 
-        name={item.name}
-        onActivePhoto={() => openModalWithItem(item)}
+        name={item.name}        
       />
    )});
    console.log(photoList[1]);
