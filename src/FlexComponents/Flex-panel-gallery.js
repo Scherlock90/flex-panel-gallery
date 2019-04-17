@@ -43,7 +43,11 @@ export default function FlexPanelGallery () {
       setPic('/Images/'+pic);
       console.log('What is pass! ' + pic)
       return pic
-    }    
+    } 
+    function closeModal(modalMainOpen) {
+      setModalMainOpen(false)
+      return modalMainOpen
+    }   
  
   return (
     <div>
@@ -61,36 +65,33 @@ export default function FlexPanelGallery () {
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
       </div>
-      <Modal bg="#222" show={ modalMainOpen } onClose={toggleModal.bind(this) }>
-        <img src={pic} />
-      </Modal>      
+      <ReactModal 
+        isOpen={modalMainOpen}
+        contentLabel="onRequestClose Example"
+        onRequestClose={closeModal}          
+        className="Modal"
+        overlayClassName="Overlay"
+      >      
+        <div>
+          <div className="containerModal">
+          <div className="containerMyModal" >
+            <div className="cardImage">
+              <div className="box">
+                <img  style={makeGrey}className="imgModal" src={pic} />
+              </div>
+            </div>
+          </div>  
+        </div>   
+        <div style={buttonStyle}>
+          <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
+          <Button variant="contained" color="primary" onClick={() => setGrayscale(0)} >Normal</Button>
+          <Button variant="contained" color="secondary" onClick={closeModal} >Close Modal</Button>
+        </div> 
+        </div>         
+      </ReactModal>
     </div>
   )
 }
-
-class Modal extends React.Component {
-  render() {
-    const { show, bg, closeModal } = this.props;
-    // Custom styles: set visibility and backbround color
-    const styles = {
-      modal: {
-        display: (show) ? null : 'none', 
-        backgroundColor: bg || 'rgba(255, 255, 255, 0.8)',       
-      }
-    };
-    
-    return (
-      <div className="modal-wrapper" style={styles.modal}>
-        <span className="glyphicon glyphicon-remove-sign modal-item"
-            onClick={this.props.onClose}></span>
-        <div className="modal-item">
-        	{ this.props.children}
-				</div>
-      </div>
-    )
-  }
-}
-
 
 const ImageThumb = (props) => (
     <div className="cardImage">

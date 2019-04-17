@@ -37,10 +37,6 @@ body {
   overflow: hidden;
 }
 
-.container .box--active {
-  display: none;
-}
-
 .container .box img {
   position: absolute;
   top: 0;
@@ -84,10 +80,6 @@ body {
 
 .cardImage {
   display: block;
-}
-
-.cardImage--active {
-  display: none;
 }
 
 .cardImage .thumbTitle {
@@ -206,21 +198,28 @@ body {
 }
 
 .containerModal {
-  height: -webkit-fill-available;
-  width: auto;
-  display: flex;
+  height: auto;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
 
-.Modal {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  background-color: papayawhip;
+.containerModal .containerMyModal {
+  display: contents;
+}
+
+.containerModal .containerMyModal .cardImage .box {
+  display: flex;
+  justify-content: center;
+}
+
+.containerModal .containerMyModal .cardImage .box .imgModal {
+  width: 90%;
+  height: 80%;
 }
 
 .Overlay {
@@ -229,7 +228,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.8;
+  opacity: 1;
+}
+
+.Modal {
+  display: grid;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: #424242;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .modal-wrapper {
