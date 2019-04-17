@@ -39,8 +39,8 @@ export default function FlexPanelGallery () {
     }
     function toggleModal (pic) {
       setModalMainOpen(true)
-      setPic('/Images/'+pic);
-      console.log('What is pass! ' + pic)
+      setPic(require('./Images/'+pic));
+      console.log('That is pass! ' + pic)
       return pic
     } 
     function closeModal(modalMainOpen) {
@@ -93,7 +93,7 @@ export default function FlexPanelGallery () {
 const ImageThumb = (props) => (
     <div className="cardImage">
       <div className="box">
-        <img src={('/Images/' + props.img)} alt={props.name} onClick={props.onActivePhoto} />
+        <img src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActivePhoto} />
       </div>
       <div className="thumbTitle">{props.name}</div> 
     </div> 
