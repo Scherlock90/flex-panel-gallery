@@ -30,8 +30,8 @@ const buttonStyle ={
   padding : '3em 0 0 0'
 }
 
-export default function FlexPanelGallery () {
-    const [imagesToGallery] = useState(dataImage);
+export default function FlexPanelGallery (props) {
+    const [imagesToGallery, setImageToGallery] = useState(dataImage);
     const [grayscale, setGrayscale] = useState(0);
     const [selectedPhoto, setSelectedPhoto] = useState();
     const [modal, setModal] = useState(false);
@@ -45,45 +45,18 @@ export default function FlexPanelGallery () {
     function toggleModal (pic) {
       setModalMainOpen(true)
       setPic(pic);
-      console.log('Co przechodzi! ' + pic)
+      console.log('What is pass! ' + pic)
       return pic
     }
     
-    function albumClicked  (selectedPhoto)   {
-      setSelectedPhoto(dataImage);
-      console.log(selectedPhoto);
-      return selectedPhoto      
-    }
-    function handleOpenModal (modal) {
-      setModal(true);
-      return modal
-    }
-    
-    function handleCloseModal (modal) {
-      setModal(false);
-      return modal
-    }
-  
-    function afterOpenModal (subtitle) {
-      // references are now sync'd and can be accessed.
-       setSubTitle(photoList.filter(img  => img.id === selectedPhoto.id).map(img => img.img === selectedPhoto.img));
-       console.log(photoList.filter(img  => img.img === selectedPhoto.img).map(img => img.img === selectedPhoto.img));
-       return subtitle
-    }
-   let photoList = imagesToGallery.filter( item => (
-      <ImageThumb 
-        key={item.id}
-        img={item.img} 
-        name={item.name}  
-        onActivePhoto={toggleModal.bind(this, item.img)}      
-      />
-   ));
-   console.log(photoList);
+  //  let photoList = imagesToGallery;
+  //  console.log(photoList);
+  //  console.log(pic);
  
   return (
     <div>
       <div className="container" style={makeGrey}>        
-        {photoList.map((img, i)=> (
+        {imagesToGallery.map((img, i)=> (
           <ImageThumb 
             img={img.img} 
             key={i} 
@@ -96,17 +69,17 @@ export default function FlexPanelGallery () {
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
       </div>
-      <button onClick={toggleModal.bind(this, 'http://lorempixel.com/200/200/business/1')} >Click</button>
-      <button onClick={e => toggleModal(e)}>Trigger Modal</button>
-                  <Modal bg="#222" show={ modalMainOpen } 
-                      onClose={toggleModal.bind(this) }>
-                     <img src={pic} />
-                     {pic}
-                      
-                   
-        
-                    </Modal>
-        
+      {/* When I click this button then i have image in tag <img />  */}
+      {/* <button onClick={toggleModal.bind(this, 'http://lorempixel.com/200/200/business/1')} >Click</button> */}
+        <Modal bg="#222" show={ modalMainOpen } 
+            onClose={toggleModal.bind(this) }>
+            {/* <img src={pic} />
+            {pic} */}
+            <img src={pic} />
+            {pic}  
+            {/* <ImageThumb img={imagesToGallery[0].img} /> */}
+           
+        </Modal>
     </div>
   )
 }
@@ -127,12 +100,13 @@ class Modal extends React.Component {
         <span className="glyphicon glyphicon-remove-sign modal-item"
             onClick={this.props.onClose}></span>
         <div className="modal-item">
-        	{ this.props.children }
+        	{ this.props.children}
 				</div>
       </div>
     )
   }
 }
+
 
 const ImageThumb = (props) => (
     <div className="cardImage">
