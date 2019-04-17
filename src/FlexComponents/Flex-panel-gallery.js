@@ -30,28 +30,20 @@ const buttonStyle ={
   padding : '3em 0 0 0'
 }
 
-export default function FlexPanelGallery (props) {
-    const [imagesToGallery, setImageToGallery] = useState(dataImage);
+export default function FlexPanelGallery () {
+    const [imagesToGallery] = useState(dataImage);
     const [grayscale, setGrayscale] = useState(0);
-    const [selectedPhoto, setSelectedPhoto] = useState();
-    const [modal, setModal] = useState(false);
-    const [subtitle, setSubTitle] = useState('');
     const [modalMainOpen, setModalMainOpen] = useState(false);
-    const [pic, setPic] = useState();
+    const [pic, setPic] = useState('');
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
-
     function toggleModal (pic) {
       setModalMainOpen(true)
-      setPic(pic);
+      setPic('/Images/'+pic);
       console.log('What is pass! ' + pic)
       return pic
-    }
-    
-  //  let photoList = imagesToGallery;
-  //  console.log(photoList);
-  //  console.log(pic);
+    }    
  
   return (
     <div>
@@ -62,24 +54,16 @@ export default function FlexPanelGallery (props) {
             key={i} 
             name={img.name} 
             onActivePhoto={toggleModal.bind(this, img.img)}
-            />
+          />
         ))}    
       </div>
       <div style={buttonStyle}>
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
       </div>
-      {/* When I click this button then i have image in tag <img />  */}
-      {/* <button onClick={toggleModal.bind(this, 'http://lorempixel.com/200/200/business/1')} >Click</button> */}
-        <Modal bg="#222" show={ modalMainOpen } 
-            onClose={toggleModal.bind(this) }>
-            {/* <img src={pic} />
-            {pic} */}
-            <img src={pic} />
-            {pic}  
-            {/* <ImageThumb img={imagesToGallery[0].img} /> */}
-           
-        </Modal>
+      <Modal bg="#222" show={ modalMainOpen } onClose={toggleModal.bind(this) }>
+        <img src={pic} />
+      </Modal>      
     </div>
   )
 }
@@ -111,11 +95,8 @@ class Modal extends React.Component {
 const ImageThumb = (props) => (
     <div className="cardImage">
       <div className="box">
-        <img src={require('./Images/' + props.img)} alt={props.name} onClick={props.onActivePhoto} />
+        <img src={('/Images/' + props.img)} alt={props.name} onClick={props.onActivePhoto} />
       </div>
       <div className="thumbTitle">{props.name}</div> 
-      {/* <div id="myModal" className={props.isActive ? 'modal-content': 'modal'}>
-        <img onClick={props.notActivePhoto} src={require('./Images/' + props.img)} />
-      </div>   */}
     </div> 
 );
