@@ -1,17 +1,13 @@
 {
-  "main.css": "/flex-panel-gallery/static/css/main.45e6132c.chunk.css",
-  "main.js": "/flex-panel-gallery/static/js/main.396a8e39.chunk.js",
-  "main.js.map": "/flex-panel-gallery/static/js/main.396a8e39.chunk.js.map",
+  "main.css": "/flex-panel-gallery/static/css/main.06835e43.chunk.css",
+  "main.js": "/flex-panel-gallery/static/js/main.27d43089.chunk.js",
+  "main.js.map": "/flex-panel-gallery/static/js/main.27d43089.chunk.js.map",
   "runtime~main.js": "/flex-panel-gallery/static/js/runtime~main.b3676a7d.js",
   "runtime~main.js.map": "/flex-panel-gallery/static/js/runtime~main.b3676a7d.js.map",
-  "static/js/2.ba721f3f.chunk.js": "/flex-panel-gallery/static/js/2.ba721f3f.chunk.js",
-  "static/js/2.ba721f3f.chunk.js.map": "/flex-panel-gallery/static/js/2.ba721f3f.chunk.js.map",
+  "static/js/2.06f7bf13.chunk.js": "/flex-panel-gallery/static/js/2.06f7bf13.chunk.js",
+  "static/js/2.06f7bf13.chunk.js.map": "/flex-panel-gallery/static/js/2.06f7bf13.chunk.js.map",
   "index.html": "/flex-panel-gallery/index.html",
-  "precache-manifest.732f62aeda49f87140eb078ad93bbdbf.js": "/flex-panel-gallery/precache-manifest.732f62aeda49f87140eb078ad93bbdbf.js",
+  "precache-manifest.1b4270114c0c5e1bdc18de292659df32.js": "/flex-panel-gallery/precache-manifest.1b4270114c0c5e1bdc18de292659df32.js",
   "service-worker.js": "/flex-panel-gallery/service-worker.js",
-  "static/css/main.45e6132c.chunk.css.map": "/flex-panel-gallery/static/css/main.45e6132c.chunk.css.map",
-  "static/media/branicki.jpg": "/flex-panel-gallery/static/media/branicki.b5f606cd.jpg",
-  "static/media/roadTorun.jpg": "/flex-panel-gallery/static/media/roadTorun.d52ffd65.jpg",
-  "static/media/sliwnoKladki.jpg": "/flex-panel-gallery/static/media/sliwnoKladki.a6e488c2.jpg",
-  "static/media/sopotMolo.jpg": "/flex-panel-gallery/static/media/sopotMolo.b9370156.jpg"
+  "static/css/main.06835e43.chunk.css.map": "/flex-panel-gallery/static/css/main.06835e43.chunk.css.map"
 }
