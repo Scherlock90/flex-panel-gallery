@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ReactModal from 'react-modal';
 import Button from '@material-ui/core/Button';
-import Albums from './Albums';
 import './main.css';
 ReactModal.setAppElement('#root2');
 const dataImage = [
@@ -72,8 +71,7 @@ export default function FlexPanelGallery () {
         className="Modal"
         overlayClassName="Overlay"
       >      
-        <div>
-          <div className="containerModal">
+        <div className="containerModal">
           <div className="containerMyModal" >
             <div className="cardImage">
               <div className="box">
@@ -86,8 +84,7 @@ export default function FlexPanelGallery () {
           <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
           <Button variant="contained" color="primary" onClick={() => setGrayscale(0)} >Normal</Button>
           <Button variant="contained" color="secondary" onClick={closeModal} >Close Modal</Button>
-        </div> 
-        </div>         
+        </div>                  
       </ReactModal>
     </div>
   )
