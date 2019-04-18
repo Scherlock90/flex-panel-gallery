@@ -108,7 +108,7 @@ body {
     align-items:center;
     align-content: center;
     .containerMyModal{
-      display: contents;
+      display: -webkit-box;
       .cardImage{
         .box{
           display: flex;
@@ -116,28 +116,29 @@ body {
           .imgModal{
             width: 90%;
             height: 80%;
-            max-width: 1400px;
-            max-height: 670px;
+            max-width: 1200px;
+            max-height: 670px;   
+            margin-left: auto;
+            margin-right: auto;
           }
-          .littleContainerName{
-            width: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            
-            .nameModalImage{
-              color: rgb(3, 155, 229);
-              text-transform: uppercase;
-              font-size: 30px;
-              width: 200px;
-              writing-mode: vertical-lr;
-              -webkit-writing-mode: vertical-lr;
-              text-orientation: upright;
-            }
-          }
+        }        
+      }
+      .littleContainerName{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;            
+        .nameModalImage{
+          color: rgb(3, 155, 229);
+          text-transform: uppercase;
+          font-size: 30px;
+          width: 200px;
+          writing-mode: vertical-lr;
+          -webkit-writing-mode: vertical-lr;
+          text-orientation: upright;
         }
-       }
-    } 
+      }       
+    }
   }
 }

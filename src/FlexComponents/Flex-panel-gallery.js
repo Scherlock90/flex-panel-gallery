@@ -6,7 +6,7 @@ ReactModal.setAppElement('#root2');
 const dataImage = [
   {
     id: 1,
-    name: 'Branickich Pałac Letni',
+    name: 'Branickich Pałac',
     img: 'branicki.jpg'
   },
   { 
@@ -78,14 +78,14 @@ export default function FlexPanelGallery () {
           <div className="containerMyModal" >
             <div className="cardImage">
               <div className="box">
-                <img  style={makeGrey}className="imgModal" src={pic} />
-                <div className="littleContainerName">
-                  <div className="nameModalImage">
-                    {name} 
-                  </div>                   
-                </div>
-              </div>
-            </div>              
+                <img  style={makeGrey}className="imgModal" src={pic} />                
+              </div>              
+            </div> 
+            <div className="littleContainerName">
+              <div className="nameModalImage">
+                {name} 
+              </div>                   
+            </div>             
           </div>  
         </div>   
         <div style={buttonStyle}>
