@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/flex-panel-gallery/static/js/runtime~main.b3676a7d.js"
   },
   {
-    "revision": "e98248f7c6fe270cfcbc",
-    "url": "/flex-panel-gallery/static/js/main.eeb4bbb7.chunk.js"
+    "revision": "23b5b3ffdaec3e27df19",
+    "url": "/flex-panel-gallery/static/js/main.938baba1.chunk.js"
   },
   {
     "revision": "1ef0e8008381fb867060",
     "url": "/flex-panel-gallery/static/js/2.b785b1e3.chunk.js"
   },
   {
-    "revision": "e98248f7c6fe270cfcbc",
-    "url": "/flex-panel-gallery/static/css/main.5293c09a.chunk.css"
+    "revision": "23b5b3ffdaec3e27df19",
+    "url": "/flex-panel-gallery/static/css/main.2c589cfd.chunk.css"
   },
   {
-    "revision": "73806110f602172a1c3bfdf6ff6404c1",
+    "revision": "1321511314dfffac56b117bd33db7950",
     "url": "/flex-panel-gallery/index.html"
   }
 ];
