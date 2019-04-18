@@ -136,3 +136,21 @@ body {
   max-width: 1400px;
   max-height: 670px;
 }
+
+.Modal .containerModal .containerMyModal .cardImage .box .littleContainerName {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.Modal .containerModal .containerMyModal .cardImage .box .littleContainerName .nameModalImage {
+  color: #039be5;
+  text-transform: uppercase;
+  font-size: 30px;
+  width: 200px;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  text-orientation: upright;
+}

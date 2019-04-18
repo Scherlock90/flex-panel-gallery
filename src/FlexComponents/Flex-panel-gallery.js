@@ -6,17 +6,17 @@ ReactModal.setAppElement('#root2');
 const dataImage = [
   {
     id: 1,
-    name: 'Letniskowy Pałac Branickich',
+    name: 'Branickich Pałac Letni',
     img: 'branicki.jpg'
   },
   { 
     id: 2,
-    name: 'W drodze do Torunia',
+    name: 'Kujawsko-Pomorskie',
     img: 'roadTorun.jpg'
   },
   {
     id: 3,
-    name: 'Kładki w Śliwnie',
+    name: 'Narwiański Narodowy Park',
     img: 'sliwnoKladki.jpg'
   },
   {
@@ -34,17 +34,20 @@ export default function FlexPanelGallery () {
     const [grayscale, setGrayscale] = useState(0);
     const [modalMainOpen, setModalMainOpen] = useState(false);
     const [pic, setPic] = useState('');
+    const [name, setName] = useState('');
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
-    function toggleModal (pic) {
+    function toggleModal (name, pic) {
       setModalMainOpen(true)
-      setPic(require('./Images/'+pic));
+      setName(name);
+      setPic(require('./Images/'+ pic));      
       console.log('That is pass! ' + pic)
       return pic
     } 
     function closeModal(modalMainOpen) {
       setModalMainOpen(false)
+      setGrayscale(0);
       return modalMainOpen
     }   
  
@@ -56,7 +59,7 @@ export default function FlexPanelGallery () {
             img={img.img} 
             key={i} 
             name={img.name} 
-            onActivePhoto={toggleModal.bind(this, img.img)}
+            onActivePhoto={e => toggleModal(img.name, img.img)}
           />
         ))}    
       </div>
@@ -76,8 +79,13 @@ export default function FlexPanelGallery () {
             <div className="cardImage">
               <div className="box">
                 <img  style={makeGrey}className="imgModal" src={pic} />
+                <div className="littleContainerName">
+                  <div className="nameModalImage">
+                    {name} 
+                  </div>                   
+                </div>
               </div>
-            </div>
+            </div>              
           </div>  
         </div>   
         <div style={buttonStyle}>
