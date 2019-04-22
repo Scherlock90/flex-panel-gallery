@@ -111,8 +111,8 @@ body {
 }
 
 .Modal .containerModal {
-  height: auto;
-  width: 80%;
+  height: 50%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   display: grid;
@@ -133,10 +133,22 @@ body {
 .Modal .containerModal .containerMyModal .cardImage .box .imgModal {
   width: 90%;
   height: 80%;
-  max-width: 1200px;
-  max-height: 670px;
+  max-height: 650px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 360px) {
+  .Modal .containerModal .containerMyModal .cardImage .box .imgModal {
+    max-height: 650px;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .Modal .containerModal .containerMyModal .cardImage .box .imgModal {
+    max-height: 450px;
+  }
 }
 
 .Modal .containerModal .containerMyModal .littleContainerName {
@@ -155,4 +167,13 @@ body {
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;
   text-orientation: upright;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #424242;
 }
