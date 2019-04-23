@@ -1,51 +1,10 @@
 import React, {useState} from 'react';
+import dataImage from './data';
 import ReactModal from 'react-modal';
 import Button from '@material-ui/core/Button';
 import './main.css';
 ReactModal.setAppElement('#root2');
-const dataImage = [
-  {
-    id: 1,
-    name: 'Branickich Pałac',
-    img: 'branicki.jpg'
-  },
-  { 
-    id: 2,
-    name: 'Kujawsko-Pomorskie',
-    img: 'roadTorun.jpg'
-  },
-  {
-    id: 3,
-    name: 'Narwiański Narodowy Park',
-    img: 'sliwnoKladki.jpg'
-  },
-  {
-    id: 4,
-    name: 'Sopockie Molo',
-    img: 'sopotMolo.jpg'
-  },
-  
-  {
-    id: 2,
-    name: 'Kujawsko-Pomorskie',
-    img: 'roadTorun.jpg'
-  },
-  {
-    id: 6,
-    name: 'Sopockie Molo',
-    img: 'sopotMolo.jpg'
-  }
-  ,{
-    id: 7,
-    name: 'Narwiański Narodowy Park',
-    img: 'sliwnoKladki.jpg'
-  },
-  {
-    id: 8,
-    name: 'Branickich Pałac',
-    img: 'branicki.jpg'
-  }
-]
+
 const buttonStyle ={
   padding : '3em 0 0 0'
 }
@@ -67,6 +26,7 @@ export default function FlexPanelGallery () {
     const [name, setName] = useState('');
     const [startIndex, setStartIndex] = useState(0);
     const [finishIndex, setFinishIndex] = useState(4);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
