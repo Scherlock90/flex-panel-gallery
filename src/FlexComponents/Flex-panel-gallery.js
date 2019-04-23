@@ -67,7 +67,6 @@ export default function FlexPanelGallery () {
     const [name, setName] = useState('');
     const [startIndex, setStartIndex] = useState(0);
     const [finishIndex, setFinishIndex] = useState(4);
-    const [currentIndex, setCurrentIndex] = useState(0);
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
@@ -83,6 +82,26 @@ export default function FlexPanelGallery () {
       setGrayscale(0);
       return modalMainOpen
     }  
+    function leftClick (e) {
+      if(startIndex > 0 && finishIndex > 0){
+        setStartIndex(startIndex - 1);
+        setFinishIndex(finishIndex - 1)
+      } if (finishIndex === 0) {
+        setFinishIndex(0);
+      }
+      return currentIndex
+    }
+    function rightClick (e) {
+      if(finishIndex <= photoList.length){
+      setStartIndex(startIndex + 1);
+      setFinishIndex(finishIndex + 4);
+      } else  {
+        setStartIndex(0);
+        setFinishIndex(4);
+      }
+      return currentIndex
+    }
+
     let photoList;
     if (imagesToGallery.length > 0) {
       photoList = imagesToGallery.map((img, i)=> (
@@ -95,30 +114,7 @@ export default function FlexPanelGallery () {
     ))} else {
       photoList = <div style={styleLoading}>Please add some cards</div>
     }
-
-    function leftClick (e) {
-      if(startIndex > 0 && finishIndex > 0){
-        setStartIndex(startIndex - 1);
-        setFinishIndex(finishIndex - 1)
-      console.log('Left scroll');
-      } if (finishIndex === 0) {
-        setFinishIndex(0);
-        console.log('set End');
-      }
-      return currentIndex
-    }
-    function rightClick (e) {
-      if(finishIndex <= photoList.length){
-      setStartIndex(startIndex + 1);
-      setFinishIndex(finishIndex + 4);
-      console.log('right scroll');
-      } else  {
-        setStartIndex(0);
-        setFinishIndex(4);
-        console.log('Go to start');
-      }
-      return currentIndex
-    }
+    
   return (
     <div>
       <div className="containerMain">
@@ -131,7 +127,6 @@ export default function FlexPanelGallery () {
       <div style={buttonStyle}>
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
-        
       </div>
       <ReactModal 
         isOpen={modalMainOpen}
