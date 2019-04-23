@@ -12,9 +12,10 @@ body {
 }
 
 .container {
-  width: 1200px;
+  width: 1145px;
   height: 400px;
-  display: flex;
+  overflow: hidden;
+  display: -webkit-box;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -182,4 +183,29 @@ body {
   right: 0;
   bottom: 0;
   background-color: #424242;
+}
+
+.track {
+  width: 1120px;
+  display: flex;
+  overflow: hidden;
+}
+
+.cardImage {
+  margin: 0.2em;
+}
+
+.slider {
+  align-items: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.slider a.nextButton {
+  right: -5px;
+}
+
+.slider a.previousButton {
+  left: -5px;
 }
