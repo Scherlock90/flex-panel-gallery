@@ -99,10 +99,10 @@ body {
 .Modal {
   display: grid;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #424242;
   text-align: center;
   justify-content: center;
@@ -148,6 +148,12 @@ body {
 @media screen and (min-width: 1200px) {
   .Modal .containerModal .containerMyModal .cardImage .box .imgModal {
     max-height: 450px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .Modal .containerModal .containerMyModal .cardImage .box .imgModal {
+    max-height: 800px;
   }
 }
 
