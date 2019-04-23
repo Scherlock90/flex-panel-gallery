@@ -26,24 +26,24 @@ const dataImage = [
   },
   
   {
-    id: 3,
-    name: 'Narwiański Narodowy Park',
-    img: 'sliwnoKladki.jpg'
+    id: 2,
+    name: 'Kujawsko-Pomorskie',
+    img: 'roadTorun.jpg'
   },
   {
-    id: 4,
+    id: 6,
     name: 'Sopockie Molo',
     img: 'sopotMolo.jpg'
   }
   ,{
-    id: 3,
+    id: 7,
     name: 'Narwiański Narodowy Park',
     img: 'sliwnoKladki.jpg'
   },
   {
-    id: 4,
-    name: 'Sopockie Molo',
-    img: 'sopotMolo.jpg'
+    id: 8,
+    name: 'Branickich Pałac',
+    img: 'branicki.jpg'
   }
 ]
 const buttonStyle ={
@@ -97,29 +97,32 @@ export default function FlexPanelGallery () {
     }
 
     function leftClick (e) {
-      if(currentIndex <= photoList.length){
-      setCurrentIndex(currentIndex - 1);
-      console.log('Left ' + currentIndex);
-      } if (currentIndex === 0) {
-        setCurrentIndex(0);
-        console.log('ustawia koniec')
+      if(startIndex > 0 && finishIndex > 0){
+        setStartIndex(startIndex - 1);
+        setFinishIndex(finishIndex - 1)
+      console.log('Left scroll');
+      } if (finishIndex === 0) {
+        setFinishIndex(0);
+        console.log('set End');
       }
       return currentIndex
     }
     function rightClick (e) {
-      if(currentIndex < photoList.length * 6){
-      setCurrentIndex(currentIndex + 1);
-      console.log('right ' + currentIndex)
-      } if (currentIndex === photoList.length) {
-        setCurrentIndex(0);
-        console.log('do zera ' + currentIndex)
+      if(finishIndex <= photoList.length){
+      setStartIndex(startIndex + 1);
+      setFinishIndex(finishIndex + 4);
+      console.log('right scroll');
+      } else  {
+        setStartIndex(0);
+        setFinishIndex(4);
+        console.log('Go to start');
       }
       return currentIndex
     }
   return (
     <div>
       <div className="container" style={makeGrey}>
-         {photoList[currentIndex]}   
+         {photoList.slice(startIndex, finishIndex)}   
       </div>
       <div style={buttonStyle}>
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
