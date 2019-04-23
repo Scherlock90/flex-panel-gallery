@@ -6,7 +6,9 @@ import './main.css';
 ReactModal.setAppElement('#root2');
 
 const buttonStyle ={
-  padding : '3em 0 0 0'
+  padding : '3em 0 0 0',
+  display: 'flex',
+  justifyContent: 'center'
 }
 const styleLoading = {
   textAlign: 'center',
@@ -48,14 +50,15 @@ export default function FlexPanelGallery () {
         setFinishIndex(finishIndex - 1)
       } if (finishIndex === 0) {
         setFinishIndex(0);
+        setStartIndex(0);
       }
       return currentIndex
     }
     function rightClick (e) {
       if(finishIndex <= photoList.length){
       setStartIndex(startIndex + 1);
-      setFinishIndex(finishIndex + 4);
-      } else  {
+      setFinishIndex(finishIndex + 1);
+      } if (finishIndex === photoList.length) {
         setStartIndex(0);
         setFinishIndex(4);
       }

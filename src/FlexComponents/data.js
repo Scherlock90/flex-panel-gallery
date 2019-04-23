@@ -21,19 +21,19 @@ const dataImage = [
     },
     
     {
-      id: 2,
-      name: 'Kujawsko-Pomorskie',
-      img: 'roadTorun.jpg'
+      id: 5,
+      name: 'Linoskoczek',
+      img: 'sopotLinkoskoczek.jpg'
     },
     {
       id: 6,
-      name: 'Sopockie Molo',
-      img: 'sopotMolo.jpg'
+      name: 'Sopot Mewy',
+      img: 'mewySopot.jpg'
     }
     ,{
       id: 7,
-      name: 'Narwiański Narodowy Park',
-      img: 'sliwnoKladki.jpg'
+      name: 'Kompaktowa kotka',
+      img: 'kotKompaktowy.jpg'
     },
     {
       id: 8,
