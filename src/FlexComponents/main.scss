@@ -2,10 +2,12 @@ $break-small: 360px;
 $break-medium: 600px;
 $break-large: 1200px;
 $break-very-large: 1500px;
+$color-font-first: rgb(3, 155, 229);
+$background-color-main: #424242;
 
 body {
   margin: 0;
-  background-color: #424242;
+  background-color: $background-color-main;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -18,11 +20,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container{
-  width: 1145px;
+  width: 1140px;
   height: 400px;
   overflow: hidden;
-  display: -webkit-box;
-  // display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   &:hover .box:before {
@@ -36,7 +37,7 @@ body {
     position: relative;
     width: 280px;
     height: 400px;
-    background: #424242;;
+    background: $background-color-main;
     transition: 0.5s;
     overflow:hidden;
     img {
@@ -55,7 +56,7 @@ body {
       left: 0;
       width: 50%;
       height: 100%;
-      background: #424242;;
+      background: $background-color-main;
       z-index: 1;
       transition: 0.5s;
     }
@@ -66,7 +67,7 @@ body {
       right: 0;
       width: 50%;
       height: 100%;
-      background: #424242;;
+      background: $background-color-main;
       z-index: 1;
       transition: 0.5s;
     }
@@ -90,7 +91,7 @@ body {
     color: #fafafa;
     opacity: 1;
     transition: opacity 3s;
-    background-color: rgb(3, 155, 229);
+    background-color: $color-font-first;
   }
 }
 .Modal {
@@ -100,7 +101,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #424242;
+  background-color: $background-color-main;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -146,7 +147,7 @@ body {
         align-items: center;
         align-content: center;            
         .nameModalImage{
-          color: rgb(3, 155, 229);
+          color: $color-font-first;
           text-transform: uppercase;
           font-size: 30px;
           width: 200px;
@@ -164,25 +165,32 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #424242;
+  background-color: $background-color-main
 }
-.track{
-  width: 1120px;
+.containerMain{
+  position: relative;
   display: flex;
-  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+  background-color: $background-color-main;
 }
-.cardImage{
-  margin: 0.2em;
-}
-.slider{
-  align-items: center;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-.slider a.nextButton{
-  right: -5px;
-}
-.slider a.previousButton{
-  left: -5px;
+.buttonSlider{
+  color: $color-font-first;
+  background-color: $background-color-main;
+  border-width: 0;
+  cursor: pointer;
+  margin: 0.5em;
+  &.bt-left{
+    background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+    text-align: left;
+    left: -10px;
+    left: 0;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  &.bt-right{
+    background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+    text-align: right;
+    right: 0;
+  }
 }

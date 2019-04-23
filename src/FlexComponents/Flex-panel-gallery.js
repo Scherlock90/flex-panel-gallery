@@ -121,14 +121,17 @@ export default function FlexPanelGallery () {
     }
   return (
     <div>
-      <div className="container" style={makeGrey}>
-         {photoList.slice(startIndex, finishIndex)}   
+      <div className="containerMain">
+        <button className="buttonSlider bt-left" onClick={e => leftClick(e, currentIndex)}></button>
+        <div className="container" style={makeGrey}>
+          {photoList.slice(startIndex, finishIndex)} 
+        </div>           
+        <button className="buttonSlider bt-right" onClick={e => rightClick(e, currentIndex)}></button> 
       </div>
       <div style={buttonStyle}>
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
         <Button variant="contained" color="secondary" onClick={() => setGrayscale(0)} >Normal</Button>
-        <button onClick={e => leftClick(e, currentIndex)}>Prev</button>
-        <button onClick={e => rightClick(e, currentIndex)}>Next</button>
+        
       </div>
       <ReactModal 
         isOpen={modalMainOpen}
