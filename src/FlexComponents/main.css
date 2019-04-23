@@ -190,6 +190,7 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
+  align-items: center;
   background-color: #424242;
 }
 
@@ -199,6 +200,7 @@ body {
   border-width: 0;
   cursor: pointer;
   margin: 0.5em;
+  height: 30px;
 }
 
 .buttonSlider.bt-left {
@@ -210,8 +212,16 @@ body {
   transform: rotate(180deg);
 }
 
+.buttonSlider.bt-left:hover {
+  transform: rotate(180deg) scale(1.5);
+}
+
 .buttonSlider.bt-right {
   background: url("http://svgshare.com/i/41_.svg") no-repeat center center/16px;
   text-align: right;
   right: 0;
+}
+
+.buttonSlider.bt-right:hover {
+  transform: scale(1.5);
 }
