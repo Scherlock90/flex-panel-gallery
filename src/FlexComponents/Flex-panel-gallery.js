@@ -101,8 +101,10 @@ export default function FlexPanelGallery () {
         <div className="containerModal">
           <div className="containerMyModal" >
             <div className="cardImage">
-              <div className="box">
-                <img  style={makeGrey} className="imgModal" src={pic} />                
+              <div className="box">                
+                <img style={makeGrey} className="imgModal" src={pic} />  
+                 <div className="toggleMain"><div className="placeToggle">+</div></div>
+                              
               </div>              
             </div> 
             <div className="littleContainerName">
