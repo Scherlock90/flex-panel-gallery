@@ -43,6 +43,7 @@ export default function FlexPanelGallery () {
     function closeModal(modalMainOpen) {
       setModalMainOpen(false)
       setGrayscale(0);
+      setActive(false);
       return modalMainOpen
     }  
     function leftClick (e) {
@@ -66,8 +67,11 @@ export default function FlexPanelGallery () {
       return currentIndex
     }
     function handleDetails () {
-      setActive(true);      
-      console.log('handleDetails');
+      if (isActive === false){
+      setActive(true);    
+      }  else {
+        setActive(false)
+      }
     }
 
     let photoList;
