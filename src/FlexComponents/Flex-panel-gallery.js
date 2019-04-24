@@ -26,6 +26,7 @@ export default function FlexPanelGallery () {
     const [modalMainOpen, setModalMainOpen] = useState(false);
     const [pic, setPic] = useState('');
     const [name, setName] = useState('');
+    const [txtAbout, setTxtAbout] = useState('');
     const [startIndex, setStartIndex] = useState(0);
     const [finishIndex, setFinishIndex] = useState(4);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,9 +34,10 @@ export default function FlexPanelGallery () {
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
-    function toggleModal (name, pic) {
+    function toggleModal (name, pic, txtAbout) {
       setModalMainOpen(true)
       setName(name);
+      setTxtAbout(txtAbout);
       setPic(require('./Images/'+ pic));      
       console.log('That is pass! ' + pic)
       return pic
@@ -81,7 +83,8 @@ export default function FlexPanelGallery () {
         img={img.img} 
         key={i} 
         name={img.name} 
-        onActivePhoto={e => toggleModal(img.name, img.img)}
+        txtAbout={img.txtAbout}
+        onActivePhoto={e => toggleModal(img.name, img.img, img.txtAbout)}
       />
     ))} else {
       photoList = <div style={styleLoading}>Please add some cards</div>
@@ -115,7 +118,7 @@ export default function FlexPanelGallery () {
                   <div className={isActive ? 'toggleMain--active': 'toggleMain'} >
                     <button className="placeToggle" onClick={handleDetails}>+</button>
                   </div>
-                <div className={isActive ? 'details--active': 'details'} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div className={isActive ? 'details--active': 'details'} >{txtAbout}</div>
               </div>              
             </div> 
             <div className="littleContainerName">
