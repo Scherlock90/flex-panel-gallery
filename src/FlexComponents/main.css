@@ -228,11 +228,25 @@ body {
   transform: scale(1.5);
 }
 
-.placeToggle {
-  border-radius: 100%;
-  background-color: #fff;
-  height: 60px;
-  width: 60px;
+.details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 11;
+  pointer-events: none;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.details--active {
+  transition: 0.8s;
+  opacity: 1;
+  position: absolute;
+  z-index: 11;
 }
 
 .toggleMain {
@@ -251,7 +265,46 @@ body {
   align-self: flex-end;
 }
 
-.box .toggleMain:hover {
+.toggleMain .placeToggle {
+  border-radius: 100%;
+  background-color: #fff;
+  height: 60px;
+  width: 60px;
+}
+
+.toggleMain--active {
+  cursor: pointer;
+  position: absolute;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  outline: none;
+  text-align: center;
+  z-index: 10;
+  background-color: #fff;
+  transition: 0.5s;
+  align-self: flex-end;
+  font-size: 36px;
   box-shadow: 0 0 0 1000px green;
   transform: rotate(225deg);
+}
+
+button, input, optgroup, select, textarea {
+  font-family: none;
+}
+
+button.placeToggle {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  outline: none;
+  text-align: center;
+  z-index: 10;
+  background-color: #fff;
+  transition: 0.5s;
+  align-self: flex-end;
+  font-size: 36px;
 }

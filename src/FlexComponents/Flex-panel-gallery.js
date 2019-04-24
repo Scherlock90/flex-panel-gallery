@@ -29,6 +29,7 @@ export default function FlexPanelGallery () {
     const [startIndex, setStartIndex] = useState(0);
     const [finishIndex, setFinishIndex] = useState(4);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isActive, setActive] = useState(false);
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
@@ -63,6 +64,10 @@ export default function FlexPanelGallery () {
         setFinishIndex(4);
       }
       return currentIndex
+    }
+    function handleDetails () {
+      setActive(true);      
+      console.log('handleDetails');
     }
 
     let photoList;
@@ -103,8 +108,10 @@ export default function FlexPanelGallery () {
             <div className="cardImage">
               <div className="box">                
                 <img style={makeGrey} className="imgModal" src={pic} />  
-                 <div className="toggleMain"><div className="placeToggle">+</div></div>
-                              
+                  <div className={isActive ? 'toggleMain--active': 'toggleMain'} >
+                    <button className="placeToggle" onClick={handleDetails}>+</button>
+                  </div>
+                <div className={isActive ? 'details--active': 'details'} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
               </div>              
             </div> 
             <div className="littleContainerName">
