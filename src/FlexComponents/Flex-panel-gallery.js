@@ -1,32 +1,23 @@
 import React, {useState} from 'react';
+import dataImage from './data';
 import ReactModal from 'react-modal';
 import Button from '@material-ui/core/Button';
 import './main.css';
 ReactModal.setAppElement('#root2');
-const dataImage = [
-  {
-    id: 1,
-    name: 'Branickich Pałac',
-    img: 'branicki.jpg'
-  },
-  { 
-    id: 2,
-    name: 'Kujawsko-Pomorskie',
-    img: 'roadTorun.jpg'
-  },
-  {
-    id: 3,
-    name: 'Narwiański Narodowy Park',
-    img: 'sliwnoKladki.jpg'
-  },
-  {
-    id: 4,
-    name: 'Sopockie Molo',
-    img: 'sopotMolo.jpg'
-  }
-]
+
 const buttonStyle ={
-  padding : '3em 0 0 0'
+  padding : '3em 0 0 0',
+  display: 'flex',
+  justifyContent: 'center'
+}
+const styleLoading = {
+  textAlign: 'center',
+  fontSize: '40px',
+  color: 'rgb(3, 155, 229)',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  display: 'flex',
+  alignItems: 'center'
 }
 
 export default function FlexPanelGallery () {
@@ -35,6 +26,10 @@ export default function FlexPanelGallery () {
     const [modalMainOpen, setModalMainOpen] = useState(false);
     const [pic, setPic] = useState('');
     const [name, setName] = useState('');
+    const [startIndex, setStartIndex] = useState(0);
+    const [finishIndex, setFinishIndex] = useState(4);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isActive, setActive] = useState(false);
     const makeGrey = {
       filter: `grayscale(${grayscale})`
     }
@@ -49,19 +44,53 @@ export default function FlexPanelGallery () {
       setModalMainOpen(false)
       setGrayscale(0);
       return modalMainOpen
-    }   
- 
+    }  
+    function leftClick (e) {
+      if(startIndex > 0 && finishIndex > 0){
+        setStartIndex(startIndex - 1);
+        setFinishIndex(finishIndex - 1)
+      } if (finishIndex === 0) {
+        setFinishIndex(0);
+        setStartIndex(0);
+      }
+      return currentIndex
+    }
+    function rightClick (e) {
+      if(finishIndex <= photoList.length){
+      setStartIndex(startIndex + 1);
+      setFinishIndex(finishIndex + 1);
+      } if (finishIndex === photoList.length) {
+        setStartIndex(0);
+        setFinishIndex(4);
+      }
+      return currentIndex
+    }
+    function handleDetails () {
+      setActive(true);      
+      console.log('handleDetails');
+    }
+
+    let photoList;
+    if (imagesToGallery.length > 0) {
+      photoList = imagesToGallery.map((img, i)=> (
+      <ImageThumb 
+        img={img.img} 
+        key={i} 
+        name={img.name} 
+        onActivePhoto={e => toggleModal(img.name, img.img)}
+      />
+    ))} else {
+      photoList = <div style={styleLoading}>Please add some cards</div>
+    }
+    
   return (
     <div>
-      <div className="container" style={makeGrey}>        
-        {imagesToGallery.map((img, i)=> (
-          <ImageThumb 
-            img={img.img} 
-            key={i} 
-            name={img.name} 
-            onActivePhoto={e => toggleModal(img.name, img.img)}
-          />
-        ))}    
+      <div className="containerMain">
+        <button className="buttonSlider bt-left" onClick={e => leftClick(e, currentIndex)}></button>
+        <div className="container" style={makeGrey}>
+          {photoList.slice(startIndex, finishIndex)} 
+        </div>           
+        <button className="buttonSlider bt-right" onClick={e => rightClick(e, currentIndex)}></button> 
       </div>
       <div style={buttonStyle}>
         <Button variant="contained" color="primary" onClick={() => setGrayscale(4)} >Grayscale</Button>
@@ -77,8 +106,12 @@ export default function FlexPanelGallery () {
         <div className="containerModal">
           <div className="containerMyModal" >
             <div className="cardImage">
-              <div className="box">
-                <img  style={makeGrey}className="imgModal" src={pic} />                
+              <div className="box">                
+                <img style={makeGrey} className="imgModal" src={pic} />  
+                  <div className={isActive ? 'toggleMain--active': 'toggleMain'} >
+                    <button className="placeToggle" onClick={handleDetails}>+</button>
+                  </div>
+                <div className={isActive ? 'details--active': 'details'} >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
               </div>              
             </div> 
             <div className="littleContainerName">

@@ -1,10 +1,13 @@
 $break-small: 360px;
 $break-medium: 600px;
 $break-large: 1200px;
+$break-very-large: 1500px;
+$color-font-first: rgb(3, 155, 229);
+$background-color-main: #424242;
 
 body {
   margin: 0;
-  background-color: #424242;
+  background-color: $background-color-main;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -17,9 +20,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container{
-  width: 1200px;
+  width: 1140px;
   height: 400px;
-  display: flex;
+  overflow: hidden;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   &:hover .box:before {
@@ -33,7 +37,7 @@ body {
     position: relative;
     width: 280px;
     height: 400px;
-    background: #424242;;
+    background: $background-color-main;
     transition: 0.5s;
     overflow:hidden;
     img {
@@ -52,7 +56,7 @@ body {
       left: 0;
       width: 50%;
       height: 100%;
-      background: #424242;;
+      background: $background-color-main;
       z-index: 1;
       transition: 0.5s;
     }
@@ -63,7 +67,7 @@ body {
       right: 0;
       width: 50%;
       height: 100%;
-      background: #424242;;
+      background: $background-color-main;
       z-index: 1;
       transition: 0.5s;
     }
@@ -87,17 +91,17 @@ body {
     color: #fafafa;
     opacity: 1;
     transition: opacity 3s;
-    background-color: rgb(3, 155, 229);
+    background-color: $color-font-first;
   }
 }
 .Modal {
   display: grid;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  background-color: #424242;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $background-color-main;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -116,9 +120,11 @@ body {
       .cardImage{
         .box{
           display: flex;
-          justify-content: center;
+          justify-content: flex-end;
+          overflow: hidden;
+          position: sticky;
           .imgModal{
-            width: 90%;
+            width: 100%;
             height: 80%;
             max-height: 650px;   
             margin-left: auto;
@@ -130,6 +136,9 @@ body {
             @media screen and (min-width: $break-large) {
               max-height: 450px;
             }
+            @media screen and (min-width: $break-very-large) {
+              max-height: 800px;
+            }            
           }
         }        
       }
@@ -140,7 +149,7 @@ body {
         align-items: center;
         align-content: center;            
         .nameModalImage{
-          color: rgb(3, 155, 229);
+          color: $color-font-first;
           text-transform: uppercase;
           font-size: 30px;
           width: 200px;
@@ -158,5 +167,126 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #424242;
+  background-color: $background-color-main
 }
+.containerMain{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: $background-color-main;
+}
+.buttonSlider{
+  color: $color-font-first;
+  background-color: $background-color-main;
+  border-width: 0;
+  cursor: pointer;
+  margin: 0.5em;
+  height: 30px;
+  &.bt-left{
+    background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+    text-align: left;
+    left: -10px;
+    left: 0;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    &:hover{
+      transform: rotate(180deg) scale(1.5);
+    }
+  }  
+  &.bt-right{
+    background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+    text-align: right;
+    right: 0;
+    &:hover{
+      transform: scale(1.5);
+    }
+  }
+}
+.details{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 11;
+  pointer-events: none;
+  transition: 0.5s;
+  opacity: 0;
+  &--active{
+    transition: 0.8s;
+    opacity: 1;
+    position: absolute;
+    z-index: 11;
+    padding: 1em;
+    font-size: 120%;
+    align-self: center;
+    text-align: justify;
+    text-indent: 1.5em;
+    color: $color-font-first;
+  }
+}
+.toggleMain{
+  cursor: pointer;
+  position: absolute;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  outline: none;
+  text-align: center;
+  z-index: 10;  
+  background-color: #fff;
+  transition: 0.5s;
+  font-size: 36px;
+  box-shadow: 0 0 0 0px green;
+  align-self: flex-end;
+  .placeToggle{
+    border-radius: 100%;
+    background-color: #fff;
+    height: 60px;
+    width: 60px;
+  }
+  &--active{
+    cursor: pointer;
+  position: absolute;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  outline: none;
+  text-align: center;
+  z-index: 10;  
+  background-color: #fff;
+  transition: 0.5s;
+  align-self: flex-end;
+  font-size: 36px;
+    box-shadow: 0 0 0 1000px $background-color-main;
+    transform: rotate(225deg);
+  }
+  // &:hover{
+  //   box-shadow: 0 0 0 1000px green;
+  //   transform: rotate(225deg);
+  // }  
+}
+ 
+button, input, optgroup, select, textarea{
+  font-family: none;
+}
+button.placeToggle{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 100%;
+  right: 20px;
+  bottom: 20px;
+  outline: none;
+  text-align: center;
+  z-index: 10;  
+  background-color: #fff;
+  transition: 0.5s;
+  align-self: flex-end;
+  font-size: 36px;
+}
+ 
