@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/flex-panel-gallery/static/media/mewySopot.1e70d889.jpg"
   },
   {
-    "revision": "37b42ab7caf65fcad648",
-    "url": "/flex-panel-gallery/static/css/main.2da20928.chunk.css"
+    "revision": "4458b0fca7a30b2b490c",
+    "url": "/flex-panel-gallery/static/css/main.39b1dfa4.chunk.css"
   },
   {
     "revision": "f4e38e116397acca9abf",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/flex-panel-gallery/static/media/kotKompaktowy.214e527b.jpg"
   },
   {
-    "revision": "37b42ab7caf65fcad648",
-    "url": "/flex-panel-gallery/static/js/main.14d60018.chunk.js"
+    "revision": "4458b0fca7a30b2b490c",
+    "url": "/flex-panel-gallery/static/js/main.aa28207b.chunk.js"
   },
   {
     "revision": "d52ffd65daf3633bbef1bf86059703c4",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/flex-panel-gallery/static/media/sopotMolo.b9370156.jpg"
   },
   {
-    "revision": "7a90182b41688fae444d4eb51fe83e67",
+    "revision": "5826da8dac5524b6a22dde4c5cf23b98",
     "url": "/flex-panel-gallery/index.html"
   }
 ];
