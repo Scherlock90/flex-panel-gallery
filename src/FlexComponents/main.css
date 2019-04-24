@@ -247,6 +247,12 @@ body {
   opacity: 1;
   position: absolute;
   z-index: 11;
+  padding: 1em;
+  font-size: 120%;
+  align-self: center;
+  text-align: justify;
+  text-indent: 1.5em;
+  color: #039be5;
 }
 
 .toggleMain {
@@ -285,7 +291,7 @@ body {
   transition: 0.5s;
   align-self: flex-end;
   font-size: 36px;
-  box-shadow: 0 0 0 1000px green;
+  box-shadow: 0 0 0 1000px #424242;
   transform: rotate(225deg);
 }
 
