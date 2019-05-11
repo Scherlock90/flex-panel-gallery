@@ -3,7 +3,7 @@ $break-medium: 600px;
 $break-large: 1200px;
 $break-very-large: 1500px;
 $color-font-first: rgb(3, 155, 229);
-$background-color-main: #424242;
+$background-color-main: hsl(0, 0%, 26%);
 
 body {
   margin: 0;
@@ -95,7 +95,7 @@ body {
   }
 }
 .mainOverlay{
-  background-color: rgba(22, 22, 22 , .4) !important;
+  background-color: hsla(0, 0%, 26%, .6) !important;
 }
 .Modal {
   display: grid;
@@ -254,17 +254,17 @@ body {
   }
   &--active{
     cursor: pointer;
-  position: absolute;
-  border-radius: 100%;
-  right: 20px;
-  bottom: 20px;
-  outline: none;
-  text-align: center;
-  z-index: 10;  
-  background-color: #fff;
-  transition: 0.5s;
-  align-self: flex-end;
-  font-size: 36px;
+    position: absolute;
+    border-radius: 100%;
+    right: 20px;
+    bottom: 20px;
+    outline: none;
+    text-align: center;
+    z-index: 10;  
+    background-color: #fff;
+    transition: 0.5s;
+    align-self: flex-end;
+    font-size: 36px;
     box-shadow: 0 0 0 1000px $background-color-main;
     transform: rotate(225deg);
   }  
