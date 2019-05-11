@@ -108,7 +108,7 @@ export default function FlexPanelGallery () {
         contentLabel="onRequestClose Example"
         onRequestClose={closeModal}          
         className="Modal"
-        overlayClassName="Overlay"
+        overlayClassName="Overlay mainOverlay"
       >      
         <div className="containerModal">
           <div className="containerMyModal" >

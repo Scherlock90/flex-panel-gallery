@@ -97,6 +97,10 @@ body {
   background-color: #039be5;
 }
 
+.mainOverlay {
+  background-color: rgba(22, 22, 22, 0.4) !important;
+}
+
 .Modal {
   display: grid;
   position: absolute;
@@ -104,7 +108,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #424242;
+  background-color: rgba(22, 2, 2, 0.4);
   text-align: center;
   justify-content: center;
   align-content: center;
