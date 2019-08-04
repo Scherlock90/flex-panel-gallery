@@ -4,7 +4,7 @@ import ModalElements from './ModalElements';
 import MainGallery from './MainGallery';
 import ImageThumb from './ImageThumb';
 import dataImage from './data';
-import '../styles/main.css';
+import '../styles/main.scss';
 ReactModal.setAppElement('#root2');
 
 const buttonStyle = {
