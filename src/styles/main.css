@@ -295,7 +295,7 @@ body {
   transition: 0.5s;
   align-self: flex-end;
   font-size: 36px;
-  box-shadow: 0 0 0 1000px #424242;
+  box-shadow: 0 0 0 2000px #424242;
   transform: rotate(225deg);
 }
 

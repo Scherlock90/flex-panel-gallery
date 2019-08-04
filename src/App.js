@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer';
-import FlexPanelGallery from './FlexComponents/Flex-panel-gallery';
+import Footer from './components/Footer';
+import FlexPanelGallery from './components/FlexPanelGallery';
 
 const title = {
   fontSize: '40px',
@@ -10,10 +10,12 @@ const title = {
 }
 export default function App () {
   return (
-    <div>
-      <div  style={title}>Flex Panel Gallery</div>
+    <>
+      <div  style={title}>
+        Flex Panel Gallery
+      </div>
       <FlexPanelGallery />
       <Footer />
-    </div>
+    </>
   );
 }
