@@ -1,19 +1,23 @@
-self.__precacheManifest = [
+self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8306337f27f8313bb4f3",
-    "url": "/flex-panel-gallery/static/css/main.4cc94cbb.chunk.css"
+    "revision": "7b603dc3565cd736d8a156a28370c4d1",
+    "url": "/flex-panel-gallery/index.html"
   },
   {
-    "revision": "8306337f27f8313bb4f3",
-    "url": "/flex-panel-gallery/static/js/main.2ea7f1db.chunk.js"
+    "revision": "05d9c12468e1382721ed",
+    "url": "/flex-panel-gallery/static/css/main.47980cec.chunk.css"
   },
   {
-    "revision": "f4e38e116397acca9abf",
-    "url": "/flex-panel-gallery/static/js/runtime~main.b3676a7d.js"
+    "revision": "e53aee7bbedeb87683c6",
+    "url": "/flex-panel-gallery/static/js/2.9c3388ca.chunk.js"
   },
   {
-    "revision": "49831eb21678f3079fa2",
-    "url": "/flex-panel-gallery/static/js/2.a700cac3.chunk.js"
+    "revision": "05d9c12468e1382721ed",
+    "url": "/flex-panel-gallery/static/js/main.2af85288.chunk.js"
+  },
+  {
+    "revision": "e44d0e6283efdd5167b6",
+    "url": "/flex-panel-gallery/static/js/runtime~main.2c540707.js"
   },
   {
     "revision": "b5f606cda6479c91e8f3ee450d1e335a",
@@ -42,9 +46,5 @@ self.__precacheManifest = [
   {
     "revision": "b9370156c4ceb92d5a1b38178f308540",
     "url": "/flex-panel-gallery/static/media/sopotMolo.b9370156.jpg"
-  },
-  {
-    "revision": "d6675fdd2f1dbef06979a799ed5506e5",
-    "url": "/flex-panel-gallery/index.html"
   }
-];
+]);
