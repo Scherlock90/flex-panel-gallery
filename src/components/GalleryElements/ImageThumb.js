@@ -4,7 +4,7 @@ const ImageThumb = props => (
     <div className="cardImage">
         <div className="box">
             <img
-                src={require('../assets/' + props.img)}
+                src={require('../../assets/' + props.img)}
                 alt={props.name}
                 onClick={props.onActivePhoto}
             />

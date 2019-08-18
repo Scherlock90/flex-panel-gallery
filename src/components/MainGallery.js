@@ -5,16 +5,22 @@ export default function MainGallery({...props}) {
     return (
         <>
             <div className="containerMain">
-                <button className="buttonSlider bt-left" onClick={props.leftClick}></button>
+                <button 
+                    className="buttonSlider bt-left" 
+                    onClick={props.leftClick}
+                ></button>
                 <div 
                     className="container" 
                     style={props.makeGrey}
                 >
                     {props.photoList}
                 </div>
-                <button className="buttonSlider bt-right" onClick={props.rightClick}></button>
+                <button 
+                    className="buttonSlider bt-right" 
+                    onClick={props.rightClick}
+                ></button>
             </div>
-            <div style={props.buttonStyle}>
+            <div className="buttons-gallery">
                 <Button 
                     variant="contained" 
                     color="primary" 

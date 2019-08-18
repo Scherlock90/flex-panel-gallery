@@ -1,37 +1,20 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import ModalElements from './ModalElements';
+import ModalElements from './GalleryElements/ModalElements';
 import MainGallery from './MainGallery';
-import ImageThumb from './ImageThumb';
-import dataImage from './data';
+import ImageThumb from './GalleryElements/ImageThumb';
+import dataImage from './GalleryElements/data';
+import useCarouselDirection from './CustomHooks/useCarouselDirection';
 import '../styles/main.scss';
-ReactModal.setAppElement('#root2');
-
-const buttonStyle = {
-  padding: '3em 0 0 0',
-  display: 'flex',
-  justifyContent: 'center'
-}
-const styleLoading = {
-  textAlign: 'center',
-  fontSize: '40px',
-  color: 'rgb(3, 155, 229)',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  display: 'flex',
-  alignItems: 'center'
-}
 
 export default function FlexPanelGallery() {
+  const {rightClick, leftClick, currentIndex, startIndex, finishIndex} = useCarouselDirection();
   const [imagesToGallery] = useState(dataImage);
   const [grayscale, setGrayscale] = useState(0);
   const [modalMainOpen, setModalMainOpen] = useState(false);
   const [pic, setPic] = useState('');
   const [name, setName] = useState('');
   const [txtAbout, setTxtAbout] = useState('');
-  const [startIndex, setStartIndex] = useState(0);
-  const [finishIndex, setFinishIndex] = useState(4);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isActive, setActive] = useState(false);
   const makeGrey = {
     filter: `grayscale(${grayscale})`
@@ -51,28 +34,6 @@ export default function FlexPanelGallery() {
     setActive(false);
     return modalMainOpen
   }
-
-  function leftClick() {
-    if (startIndex > 0 && finishIndex > 0) {
-      setStartIndex(startIndex - 1);
-      setFinishIndex(finishIndex - 1)
-    } if (finishIndex === 0) {
-      setFinishIndex(0);
-      setStartIndex(0);
-    }
-    return currentIndex
-  }
-
-  function rightClick() {
-    if (finishIndex <= photoList.length) {
-      setStartIndex(startIndex + 1);
-      setFinishIndex(finishIndex + 1);
-    } if (finishIndex === photoList.length) {
-      setStartIndex(0);
-      setFinishIndex(4);
-    }
-    return currentIndex
-  }
   
   function handleDetails() {
     if (isActive === false) {
@@ -85,8 +46,8 @@ export default function FlexPanelGallery() {
   let photoList;
   if (imagesToGallery.length > 0) {
     photoList = imagesToGallery
-      .map((img, i) => (
-        <ImageThumb
+    .map((img, i) => (
+      <ImageThumb
           img={img.img}
           key={i}
           name={img.name}
@@ -94,19 +55,18 @@ export default function FlexPanelGallery() {
           onActivePhoto={e => toggleModal(img.name, img.img, img.txtAbout)}
         />
       ))
-  } else {
-    photoList = <div style={styleLoading}>Please add some cards</div>
-  }
-
+    } else {
+      photoList = <div className="loader">Please add some cards</div>
+    }
+    
   return (
     <>
       <MainGallery 
         makeGrey={makeGrey}
-        buttonStyle={buttonStyle}
         setGrayscale={() => setGrayscale(4)}
         setNormal={() => setGrayscale(0)}
         leftClick={e => leftClick(e, currentIndex)}
-        rightClick={e => rightClick(e, currentIndex)}
+        rightClick={e => rightClick(photoList, currentIndex)}
         photoList={photoList.slice(startIndex, finishIndex)}
       />
       <ReactModal
@@ -123,7 +83,6 @@ export default function FlexPanelGallery() {
           handleDetails={handleDetails}
           txtAbout={txtAbout}
           name={name}
-          buttonStyle={buttonStyle}
           closeModal={closeModal}
           setGrayscale={() => setGrayscale(4)}
           setNormal={() => setGrayscale(0)}
