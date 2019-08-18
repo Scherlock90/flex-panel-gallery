@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-const useCarouselDirection = props =>{
-    const [startIndex, setStartIndex] = useState(0);
-    const [finishIndex, setFinishIndex] = useState(4);
-    const [currentIndex] = useState(0);
+const useCarouselDirection = props => { 
+  const [startIndex, setStartIndex] = useState(0);
+  const [finishIndex, setFinishIndex] = useState(4);
+  const [currentIndex] = useState(0);
 
   function leftClick() {
     if (startIndex > 0 && finishIndex > 0) {

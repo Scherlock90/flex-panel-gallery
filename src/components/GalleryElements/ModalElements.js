@@ -13,7 +13,7 @@ export default function ModalElements({ ...props }) {
                 className="imgModal" 
                 src={props.pic} 
               />
-              <div className={props.isActive ? 'toggleMain--active' : 'toggleMain'} >
+              <div className={props.isActive ? 'toggleMain--active' : 'toggleMain'}>
                 <button 
                   className="placeToggle"
                   onClick={props.handleDetails}
@@ -21,7 +21,9 @@ export default function ModalElements({ ...props }) {
                    +
                 </button>
               </div>
-              <div className={props.isActive ? 'details--active' : 'details'} >{props.txtAbout}</div>
+              <div className={props.isActive ? 'details--active' : 'details'}>
+                {props.txtAbout}
+              </div>
             </div>
           </div>
           <div className="littleContainerName">

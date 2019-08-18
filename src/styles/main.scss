@@ -304,3 +304,25 @@ button.placeToggle{
   display: flex;
   justify-content: center;
 }
+
+.title-app{
+  font-size: 40px;
+  text-align: center;
+  padding: 2em;
+  color: #039be5;
+}
+.footer{
+    text-align: center;
+    color: rgb(21, 101, 192);
+    padding: 2em 0 2em 0;
+    width: auto;
+}
+
+.footer-href{
+    width: auto;
+    border-radius: 5%;
+    font-weight: 600;
+    font-size: 20px;
+    z-index: 100;
+    text-decoration: none;
+}

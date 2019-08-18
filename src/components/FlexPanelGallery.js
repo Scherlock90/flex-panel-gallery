@@ -3,46 +3,36 @@ import ReactModal from 'react-modal';
 import ModalElements from './GalleryElements/ModalElements';
 import MainGallery from './MainGallery';
 import ImageThumb from './GalleryElements/ImageThumb';
-import dataImage from './GalleryElements/data';
+import dataImage from './GalleryElements/Data';
 import useCarouselDirection from './CustomHooks/useCarouselDirection';
+import useModalEvents from './CustomHooks/useModalEvents';
 import '../styles/main.scss';
 
 export default function FlexPanelGallery() {
-  const {rightClick, leftClick, currentIndex, startIndex, finishIndex} = useCarouselDirection();
   const [imagesToGallery] = useState(dataImage);
-  const [grayscale, setGrayscale] = useState(0);
-  const [modalMainOpen, setModalMainOpen] = useState(false);
-  const [pic, setPic] = useState('');
-  const [name, setName] = useState('');
-  const [txtAbout, setTxtAbout] = useState('');
-  const [isActive, setActive] = useState(false);
+  const {rightClick, 
+    leftClick, 
+    currentIndex, 
+    startIndex, 
+    finishIndex
+  } = useCarouselDirection();
+  const { 
+    closeModal, 
+    toggleModal, 
+    detailsModal,
+    grayscale, 
+    setGrayscale, 
+    modalMainOpen, 
+    isActive,
+    pic,
+    txtAbout,
+    name
+  } = useModalEvents();
+    
   const makeGrey = {
     filter: `grayscale(${grayscale})`
   }
-
-  function toggleModal(name, pic, txtAbout) {
-    setModalMainOpen(true)
-    setName(name);
-    setTxtAbout(txtAbout);
-    setPic(require('../assets/' + pic));
-    return pic
-  }
-
-  function closeModal(modalMainOpen) {
-    setModalMainOpen(false)
-    setGrayscale(0);
-    setActive(false);
-    return modalMainOpen
-  }
   
-  function handleDetails() {
-    if (isActive === false) {
-      setActive(true);
-    } else {
-      setActive(false)
-    }
-  }
-
   let photoList;
   if (imagesToGallery.length > 0) {
     photoList = imagesToGallery
@@ -61,6 +51,9 @@ export default function FlexPanelGallery() {
     
   return (
     <>
+      <div className="title-app">
+        Flex Panel Gallery
+      </div>
       <MainGallery 
         makeGrey={makeGrey}
         setGrayscale={() => setGrayscale(4)}
@@ -80,7 +73,7 @@ export default function FlexPanelGallery() {
           makeGrey={makeGrey}
           isActive={isActive}
           pic={pic}
-          handleDetails={handleDetails}
+          handleDetails={detailsModal}
           txtAbout={txtAbout}
           name={name}
           closeModal={closeModal}
