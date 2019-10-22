@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import ModalElements from './GalleryElements/ModalElements';
 import MainGallery from './MainGallery';
 import ImageThumb from './GalleryElements/ImageThumb';
-import dataImage from './GalleryElements/Data';
+import dataImage from './GalleryElements/data';
 import useCarouselDirection from './CustomHooks/useCarouselDirection';
 import useModalEvents from './CustomHooks/useModalEvents';
 import '../styles/main.scss';
